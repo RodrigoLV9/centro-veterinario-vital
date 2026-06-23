@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<article class="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-lg transition-transform hover:-translate-y-1">
+  <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-vital-secondary">
+    <Icon name={icon} class="h-8 w-8 text-vital-primary" />
+  </div>
+  <h3 class="mb-2 text-xl font-semibold text-vital-dark">{title}</h3>
+  <p class="text-vital-dark/70">{description}</p>
+</article>
