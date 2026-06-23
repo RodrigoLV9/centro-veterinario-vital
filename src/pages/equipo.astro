@@ -1,9 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CardMedico from '../components/CardMedico.astro';
 ---
 
 <Layout title="Nuestro Equipo">
-  <section>
-    <h1>Nuestro Equipo</h1>
+  <section class="flex flex-col items-center gap-6 px-4 py-20 text-center md:px-8 lg:px-16">
+    <h1 class="text-4xl font-bold text-vital-dark md:text-5xl">Conoce a nuestros profesionales</h1>
+    <p class="max-w-2xl text-lg leading-relaxed text-vital-dark/70">
+      En Centro Veterinario Vital trabajamos bajo la filosofía <strong>Fear-Free</strong>,
+      priorizando el bienestar emocional de tu mascota en cada atención. Nuestro equipo
+      está capacitado para brindar un ambiente tranquilo y libre de estrés.
+    </p>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-16 md:px-8 lg:px-16">
+    <div class="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <CardMedico
+        image="/images/equipo-dra-general.webp"
+        name="Dra. Laura Méndez"
+        specialty="Medicina General"
+        description="Atención integral para perros y gatos con enfoque preventivo."
+      />
+      <CardMedico
+        image="/images/equipo-dr-felinos.webp"
+        name="Dr. Carlos Ruiz"
+        specialty="Especialista en Felinos"
+        description="Diagnóstico y tratamiento exclusivo para medicina felina."
+      />
+      <CardMedico
+        image="/images/equipo-dra-general.webp"
+        name="Dra. Sofía Torres"
+        specialty="Cirugía General"
+        description="Cirujana con más de 10 años de experiencia en procedimientos complejos."
+      />
+      <CardMedico
+        image="/images/equipo-dr-felinos.webp"
+        name="Dr. Martín López"
+        specialty="Diagnóstico por Imágenes"
+        description="Especialista en radiología y ecografía veterinaria."
+      />
+    </div>
+  </section>
+
+  <section class="px-4 py-16 md:px-8 lg:px-16">
+    <h2 class="mb-10 text-center text-3xl font-bold text-vital-dark">Nuestras Instalaciones</h2>
+    <div class="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
+      <img
+        src="/images/instalacion-recepcion.webp"
+        alt="Recepción de la clínica"
+        class="h-48 w-full rounded-xl object-cover shadow-md"
+        loading="lazy"
+      />
+      <img
+        src="/images/instalacion-consultorio.webp"
+        alt="Consultorio veterinario"
+        class="h-48 w-full rounded-xl object-cover shadow-md"
+        loading="lazy"
+      />
+      <img
+        src="/images/instalacion-quirofano.webp"
+        alt="Quirófano equipado"
+        class="h-48 w-full rounded-xl object-cover shadow-md"
+        loading="lazy"
+      />
+    </div>
   </section>
 </Layout>
