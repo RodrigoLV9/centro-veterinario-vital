@@ -1,9 +1,91 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CardServicio from '../components/CardServicio.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="Nuestros Servicios">
-  <section>
-    <h1>Nuestros Servicios</h1>
+  <section class="bg-vital-primary px-4 py-20 text-center text-white md:px-8 lg:px-16">
+    <h1 class="text-4xl font-bold md:text-5xl">Lo que hacemos por tu mascota</h1>
+  </section>
+
+  <section class="px-4 py-16 md:px-8 lg:px-16">
+    <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <CardServicio
+        icon="ph:stethoscope"
+        title="Clínica General"
+        description="Atención primaria, chequeos periódicos y seguimiento de enfermedades crónicas."
+      />
+      <CardServicio
+        icon="ph:scan"
+        title="Diagnóstico por Imágenes"
+        description="Radiología digital y ecografía para un diagnóstico preciso y no invasivo."
+      />
+      <CardServicio
+        icon="ph:syringe"
+        title="Vacunación"
+        description="Calendario de vacunación completo para cachorros y adultos."
+      />
+      <CardServicio
+        icon="ph:bandaids"
+        title="Cirugía General"
+        description="Quirófano equipado para cirugías programadas y de emergencia."
+      />
+      <CardServicio
+        icon="ph:scissors"
+        title="Peluquería"
+        description="Baño, corte higiénico y estético para todas las razas."
+      />
+      <CardServicio
+        icon="ph:flask"
+        title="Análisis Clínicos"
+        description="Laboratorio interno con resultados rápidos en hematología y bioquímica."
+      />
+    </div>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-16 md:px-8 lg:px-16">
+    <h2 class="mb-10 text-center text-3xl font-bold text-vital-dark">Plan de Vacunación</h2>
+    <div class="mx-auto max-w-4xl overflow-x-auto">
+      <table class="w-full divide-y divide-gray-200 rounded-lg border text-left text-sm">
+        <thead class="bg-vital-secondary/60 text-vital-dark">
+          <tr>
+            <th class="px-6 py-4 font-semibold">Vacuna</th>
+            <th class="px-6 py-4 font-semibold">Caninos</th>
+            <th class="px-6 py-4 font-semibold">Felinos</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr>
+            <td class="px-6 py-4 font-medium">Séxtuple / Triple Felina</td>
+            <td class="px-6 py-4">✓</td>
+            <td class="px-6 py-4">✓</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 font-medium">Antirrábica</td>
+            <td class="px-6 py-4">✓</td>
+            <td class="px-6 py-4">✓</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 font-medium">Leucemia Felina</td>
+            <td class="px-6 py-4">—</td>
+            <td class="px-6 py-4">✓</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 font-medium">Tos de las perreras</td>
+            <td class="px-6 py-4">✓</td>
+            <td class="px-6 py-4">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="flex flex-col items-center gap-6 px-4 py-20 text-center md:px-8">
+    <h2 class="text-3xl font-bold text-vital-dark">¿Tu mascota necesita un chequeo?</h2>
+    <p class="max-w-lg text-lg text-vital-dark/70">
+      Reservá un turno con nuestros especialistas y asegurate de que reciba la mejor atención.
+    </p>
+    <Button href="/turnos">Agendar Turno</Button>
   </section>
 </Layout>
