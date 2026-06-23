@@ -1,10 +1,11 @@
 ---
 interface Props {
-  href: string;
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
   variant?: 'primary' | 'outline';
 }
 
-const { href, variant = 'primary' } = Astro.props;
+const { href, type, variant = 'primary' } = Astro.props;
 
 const styles = {
   primary:
@@ -12,8 +13,18 @@ const styles = {
   outline:
     'border-2 border-vital-primary text-vital-primary hover:bg-vital-primary hover:text-white',
 };
+
+const classes = `inline-block rounded-lg px-6 py-3 font-semibold transition-colors ${styles[variant]}`;
 ---
 
-<a href={href} class={`inline-block rounded-lg px-6 py-3 font-semibold transition-colors ${styles[variant]}`}>
-  <slot />
-</a>
+{
+  href ? (
+    <a href={href} class={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type ?? 'button'} class={classes}>
+      <slot />
+    </button>
+  )
+}
