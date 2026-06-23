@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Página no encontrada">
+  <div class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center">
+    <h1 class="font-heading text-9xl font-bold text-vital-primary">404</h1>
+    <h2 class="mt-4 text-2xl font-semibold text-vital-dark">
+      ¡Ups! Parece que esta mascota se perdió.
+    </h2>
+    <p class="mt-2 mb-8 text-slate-600">
+      La página que buscás no existe o fue movida a otra dirección.
+    </p>
+    <Button href="/" text="Volver al Inicio" />
+  </div>
+</Layout>

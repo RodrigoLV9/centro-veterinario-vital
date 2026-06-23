@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -32,7 +32,7 @@ const { title, description = "Centro Veterinario Vital. Atención médica integr
       rel="stylesheet"
     />
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
 
   <body class="min-h-screen flex flex-col antialiased">
