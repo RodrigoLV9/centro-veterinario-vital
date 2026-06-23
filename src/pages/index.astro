@@ -18,8 +18,8 @@ import CardServicio from "../components/CardServicio.astro";
         equipo de especialistas dedicados a su bienestar.
       </p>
       <div class="flex flex-wrap gap-4">
-        <Button href="/turnos">Agendar Turno</Button>
-        <Button href="/servicios" variant="outline">Ver Servicios</Button>
+        <Button href="/turnos" text="Agendar Turno" />
+        <Button href="/servicios" variant="outline" text="Ver Servicios" />
       </div>
     </div>
     <div>
@@ -45,17 +45,17 @@ import CardServicio from "../components/CardServicio.astro";
     </h2>
     <div class="grid gap-8 md:grid-cols-3">
       <CardServicio
-        icon="ph:stethoscope"
+        iconName="ph:stethoscope"
         title="Clínica General"
         description="Consultas de rutina, chequeos generales y medicina preventiva para mantener a tu mascota saludable."
       />
       <CardServicio
-        icon="ph:syringe"
+        iconName="ph:syringe"
         title="Vacunación"
         description="Plan de vacunación completo y desparasitación, siguiendo el calendario vigente."
       />
       <CardServicio
-        icon="ph:bandaids"
+        iconName="ph:bandaids"
         title="Cirugías"
         description="Procedimientos quirúrgicos programados y de urgencia con equipamiento de última generación."
       />

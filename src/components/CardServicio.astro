@@ -2,18 +2,18 @@
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  icon: string;
   title: string;
   description: string;
+  iconName: string;
 }
 
-const { icon, title, description } = Astro.props;
+const { title, description, iconName } = Astro.props;
 ---
 
-<article class="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-lg transition-transform hover:-translate-y-1">
-  <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-vital-secondary">
-    <Icon name={icon} class="h-8 w-8 text-vital-primary" />
+<article class="flex flex-col items-center rounded-xl bg-white p-6 shadow-md transition hover:shadow-lg">
+  <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-vital-secondary text-vital-primary">
+    <Icon name={iconName} class="w-8 h-8" />
   </div>
-  <h3 class="mb-2 text-xl font-semibold text-vital-dark">{title}</h3>
-  <p class="text-vital-dark/70">{description}</p>
+  <h3 class="mb-2 font-heading text-lg text-vital-dark">{title}</h3>
+  <p class="text-sm text-slate-600">{description}</p>
 </article>

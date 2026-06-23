@@ -1,24 +1,19 @@
 ---
 interface Props {
-  image: string;
   name: string;
   specialty: string;
-  description?: string;
+  imagePath: string;
+  bio: string;
 }
 
-const { image, name, specialty, description } = Astro.props;
+const { name, specialty, imagePath, bio } = Astro.props;
 ---
 
-<article class="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-lg transition-transform hover:-translate-y-1">
-  <img
-    src={image}
-    alt={name}
-    class="mb-4 h-40 w-40 rounded-full object-cover shadow-md"
-    width="160"
-    height="160"
-    loading="lazy"
-  />
-  <h3 class="text-xl font-semibold text-vital-dark">{name}</h3>
-  <p class="mb-2 text-sm font-medium text-vital-primary">{specialty}</p>
-  {description && <p class="text-vital-dark/70">{description}</p>}
+<article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-md">
+  <img src={imagePath} alt={name} class="h-64 w-full object-cover" loading="lazy" />
+  <div class="p-5">
+    <h3 class="text-xl font-heading font-bold text-vital-dark">{name}</h3>
+    <p class="mb-3 text-sm font-semibold text-vital-primary">{specialty}</p>
+    <p class="line-clamp-3 text-sm text-slate-600">{bio}</p>
+  </div>
 </article>

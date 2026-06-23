@@ -12,32 +12,32 @@ import Button from '../components/Button.astro';
   <section class="px-4 py-16 md:px-8 lg:px-16">
     <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
       <CardServicio
-        icon="ph:stethoscope"
+        iconName="ph:stethoscope"
         title="Clínica General"
         description="Atención primaria, chequeos periódicos y seguimiento de enfermedades crónicas."
       />
       <CardServicio
-        icon="ph:scan"
+        iconName="ph:scan"
         title="Diagnóstico por Imágenes"
         description="Radiología digital y ecografía para un diagnóstico preciso y no invasivo."
       />
       <CardServicio
-        icon="ph:syringe"
+        iconName="ph:syringe"
         title="Vacunación"
         description="Calendario de vacunación completo para cachorros y adultos."
       />
       <CardServicio
-        icon="ph:bandaids"
+        iconName="ph:bandaids"
         title="Cirugía General"
         description="Quirófano equipado para cirugías programadas y de emergencia."
       />
       <CardServicio
-        icon="ph:scissors"
+        iconName="ph:scissors"
         title="Peluquería"
         description="Baño, corte higiénico y estético para todas las razas."
       />
       <CardServicio
-        icon="ph:flask"
+        iconName="ph:flask"
         title="Análisis Clínicos"
         description="Laboratorio interno con resultados rápidos en hematología y bioquímica."
       />
@@ -86,6 +86,6 @@ import Button from '../components/Button.astro';
     <p class="max-w-lg text-lg text-vital-dark/70">
       Reservá un turno con nuestros especialistas y asegurate de que reciba la mejor atención.
     </p>
-    <Button href="/turnos">Agendar Turno</Button>
+    <Button href="/turnos" text="Agendar Turno" />
   </section>
 </Layout>

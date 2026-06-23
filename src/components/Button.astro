@@ -2,29 +2,32 @@
 interface Props {
   href?: string;
   type?: 'button' | 'submit' | 'reset';
+  text: string;
   variant?: 'primary' | 'outline';
+  className?: string;
 }
 
-const { href, type, variant = 'primary' } = Astro.props;
+const { href, type, text, variant = 'primary', className = '' } = Astro.props;
 
-const styles = {
-  primary:
-    'bg-vital-primary text-white hover:bg-vital-primary/90 shadow-md',
+const base = 'px-6 py-2 rounded-lg font-semibold text-center transition-colors duration-300';
+
+const variants = {
+  primary: 'bg-vital-primary text-white hover:bg-teal-700',
   outline:
-    'border-2 border-vital-primary text-vital-primary hover:bg-vital-primary hover:text-white',
+    'bg-transparent border-2 border-vital-primary text-vital-primary hover:bg-vital-secondary',
 };
 
-const classes = `inline-block rounded-lg px-6 py-3 font-semibold transition-colors ${styles[variant]}`;
+const classes = `${base} ${variants[variant]} ${className}`;
 ---
 
 {
   href ? (
     <a href={href} class={classes}>
-      <slot />
+      {text}
     </a>
   ) : (
     <button type={type ?? 'button'} class={classes}>
-      <slot />
+      {text}
     </button>
   )
 }
