@@ -1,9 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FormularioTurno from '../components/FormularioTurno.jsx';
 ---
 
 <Layout title="Agendar Turno">
-  <section>
-    <h1>Agendar Turno</h1>
-  </section>
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <div class="mb-10 text-center">
+      <h1 class="text-4xl font-bold text-vital-dark">Reserva un turno para tu mascota</h1>
+      <p class="mt-3 text-lg text-vital-dark/70">
+        Completá el formulario con tus datos y los de tu mascota, y nos
+        pondremos en contacto para confirmar el turno.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="rounded-xl bg-vital-secondary p-6 text-vital-dark">
+        <h2 class="mb-4 text-lg font-semibold">Política de cancelación</h2>
+        <p class="mb-6 text-sm leading-relaxed">
+          Si no podés asistir, te pedimos que nos avises con al menos
+          <strong> 24 horas de antelación</strong> para poder reasignar el turno
+          a otro paciente.
+        </p>
+
+        <h2 class="mb-4 text-lg font-semibold">Qué traer a la consulta</h2>
+        <ul class="space-y-2 text-sm leading-relaxed">
+          <li>• Carnet de vacunación actualizado</li>
+          <li>• Estudios o análisis previos (si tenés)</li>
+          <li>• Una lista de preguntas o inquietudes</li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <FormularioTurno client:load />
+      </div>
+    </div>
+  </div>
 </Layout>
