@@ -16,7 +16,7 @@ import Button from '../components/Button.astro';
           </div>
           <div>
             <p class="font-semibold text-vital-dark">Dirección</p>
-            <p class="text-vital-dark/70">Av. San Martín 1234, Ezpeleta, Buenos Aires</p>
+            <p class="text-vital-dark/70">Av. Rivadavia 4750, Caballito, CABA</p>
           </div>
         </div>
 
@@ -42,8 +42,17 @@ import Button from '../components/Button.astro';
         </div>
       </div>
 
-      <div class="flex h-64 items-center justify-center rounded-xl bg-slate-200">
-        <p class="text-vital-dark/50 text-lg font-medium">Mapa interactivo (Google Maps)</p>
+      <div class="h-64 overflow-hidden rounded-xl">
+        <iframe
+          src="https://www.google.com/maps?q=Av.+Rivadavia+4750,+Caballito,+CABA&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación de Centro Veterinario Vital"
+        ></iframe>
       </div>
     </div>
 
