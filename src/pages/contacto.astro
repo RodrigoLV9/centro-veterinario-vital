@@ -58,13 +58,22 @@ import Button from '../components/Button.astro';
 
     <div class="rounded-xl bg-white p-8 shadow-lg">
       <h2 class="mb-6 text-2xl font-semibold text-vital-dark">Enviar Consulta</h2>
-      <form class="flex flex-col gap-5">
+
+      <div id="contact-success" class="hidden rounded-lg bg-green-100 p-4 text-green-800">
+        ¡Consulta enviada con éxito! Te responderemos a la brevedad.
+      </div>
+
+      <form id="contact-form" class="flex flex-col gap-5">
+        <div id="error-alert" class="hidden rounded-lg bg-red-100 p-3 text-sm text-red-700"></div>
+
         <div>
           <label for="nombre" class="mb-1 block text-sm font-medium text-vital-dark">Nombre</label>
           <input
             id="nombre"
+            name="nombre"
             type="text"
             placeholder="Tu nombre"
+            required
             class="w-full rounded-lg border border-slate-300 px-4 py-3 text-vital-dark outline-none transition-colors focus:border-vital-primary focus:ring-2 focus:ring-vital-primary/20"
           />
         </div>
@@ -72,8 +81,10 @@ import Button from '../components/Button.astro';
           <label for="email" class="mb-1 block text-sm font-medium text-vital-dark">Email</label>
           <input
             id="email"
+            name="email"
             type="email"
             placeholder="tu@email.com"
+            required
             class="w-full rounded-lg border border-slate-300 px-4 py-3 text-vital-dark outline-none transition-colors focus:border-vital-primary focus:ring-2 focus:ring-vital-primary/20"
           />
         </div>
@@ -81,8 +92,10 @@ import Button from '../components/Button.astro';
           <label for="asunto" class="mb-1 block text-sm font-medium text-vital-dark">Asunto</label>
           <input
             id="asunto"
+            name="asunto"
             type="text"
             placeholder="Motivo de la consulta"
+            required
             class="w-full rounded-lg border border-slate-300 px-4 py-3 text-vital-dark outline-none transition-colors focus:border-vital-primary focus:ring-2 focus:ring-vital-primary/20"
           />
         </div>
@@ -90,13 +103,61 @@ import Button from '../components/Button.astro';
           <label for="mensaje" class="mb-1 block text-sm font-medium text-vital-dark">Mensaje</label>
           <textarea
             id="mensaje"
+            name="mensaje"
             rows={5}
             placeholder="Escribí tu mensaje..."
+            required
             class="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 text-vital-dark outline-none transition-colors focus:border-vital-primary focus:ring-2 focus:ring-vital-primary/20"
           ></textarea>
         </div>
-        <Button type="submit" text="Enviar Consulta" />
+        <button
+          type="submit"
+          id="submit-btn"
+          class="w-full rounded-lg bg-vital-primary px-6 py-3 font-semibold text-white transition hover:bg-teal-700"
+        >
+          Enviar Consulta
+        </button>
       </form>
     </div>
+
+    <script>
+      const form = document.getElementById('contact-form');
+      const successMsg = document.getElementById('contact-success');
+      const errorAlert = document.getElementById('error-alert');
+      const submitBtn = document.getElementById('submit-btn');
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        errorAlert.classList.add('hidden');
+        errorAlert.textContent = '';
+
+        const nombre = form.nombre.value.trim();
+        const email = form.email.value.trim();
+        const asunto = form.asunto.value.trim();
+        const mensaje = form.mensaje.value.trim();
+
+        if (!nombre || !email || !asunto || !mensaje) {
+          errorAlert.textContent = 'Todos los campos son obligatorios.';
+          errorAlert.classList.remove('hidden');
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errorAlert.textContent = 'Ingresá un email válido.';
+          errorAlert.classList.remove('hidden');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        await new Promise((r) => setTimeout(r, 1200));
+
+        form.reset();
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+      });
+    </script>
   </section>
 </Layout>
