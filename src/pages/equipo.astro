@@ -1,78 +1,236 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CardMedico from "../components/CardMedico.astro";
+import Button from "../components/Button.astro";
 ---
 
-<Layout title="Nuestro Equipo">
-  <section
-    class="flex flex-col items-center gap-6 px-4 py-20 text-center md:px-8 lg:px-16"
-  >
-    <h1 class="text-4xl font-bold text-vital-dark md:text-5xl">
-      Conoce a nuestros profesionales
-    </h1>
-    <p class="max-w-2xl text-lg leading-relaxed text-vital-dark/70">
-      En Centro Veterinario Vital trabajamos bajo la filosofía <strong
-        >Fear-Free</strong
-      >, priorizando el bienestar emocional de tu mascota en cada atención.
-      Nuestro equipo está capacitado para brindar un ambiente tranquilo y libre
-      de estrés.
+<Layout title="Nuestro Equipo - Centro Veterinario Vital">
+  <section class="relative overflow-hidden bg-gradient-to-br from-vital-primary to-teal-800 px-4 py-24 text-white md:px-8 lg:px-16">
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <h1 class="text-4xl font-bold md:text-5xl">Conoce a nuestros profesionales</h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+        En <strong class="text-white">Centro Veterinario Vital</strong> trabajamos bajo la filosofía
+        <strong class="text-white">Fear-Free</strong>, priorizando el bienestar emocional de tu mascota
+        en cada atención. Nuestro equipo está capacitado para brindar un ambiente tranquilo y libre de estrés.
+      </p>
+    </div>
+    <div class="absolute inset-0 bg-[url('/images/hero-inicio.png')] bg-cover bg-center opacity-10"></div>
+  </section>
+
+  <section class="bg-white px-4 py-20 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-4 text-center text-3xl font-bold text-vital-dark">Médicos Veterinarios</h2>
+      <p class="mb-12 text-center text-lg text-vital-dark/60">
+        Especialistas dedicados al cuidado y bienestar de tu mascota
+      </p>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <CardMedico
+          imagePath="/images/equipo-dra-general.png"
+          name="Dra. Laura Méndez"
+          specialty="Medicina General"
+          bio="Atención integral para perros y gatos con enfoque preventivo. Especialista en medicina interna y geriatría veterinaria."
+        />
+        <CardMedico
+          imagePath="/images/equipo-dr-felinos.png"
+          name="Dr. Carlos Ruiz"
+          specialty="Especialista en Felinos"
+          bio="Diagnóstico y tratamiento exclusivo para medicina felina. Certificado en manejo del estrés en gatos."
+        />
+        <CardMedico
+          imagePath="/images/equipo-dra-cirugia.png"
+          name="Dra. Sofía Torres"
+          specialty="Cirugía General"
+          bio="Cirujana con más de 10 años de experiencia en procedimientos complejos, laparoscopía y cirugía de tejidos blandos."
+        />
+        <CardMedico
+          imagePath="/images/equipo-dr-imagenes.png"
+          name="Dr. Martín López"
+          specialty="Diagnóstico por Imágenes"
+          bio="Especialista en radiología, ecografía y tomografía veterinaria. Miembro de la Asociación Latinoamericana de Diagnóstico por Imágenes Veterinario."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-vital-primary px-4 py-16 md:px-8 lg:px-16">
+    <div class="mx-auto grid max-w-5xl grid-cols-2 gap-8 text-center text-white md:grid-cols-4">
+      <div>
+        <p class="text-4xl font-bold md:text-5xl">+15</p>
+        <p class="mt-2 text-sm font-medium text-white/80">Años de experiencia</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold md:text-5xl">+12mil</p>
+        <p class="mt-2 text-sm font-medium text-white/80">Mascotas atendidas</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold md:text-5xl">6</p>
+        <p class="mt-2 text-sm font-medium text-white/80">Especialidades</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold md:text-5xl">98%</p>
+        <p class="mt-2 text-sm font-medium text-white/80">Satisfacción</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-20 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-4 text-center text-3xl font-bold text-vital-dark">Nuestra Filosofía</h2>
+      <p class="mb-4 text-center text-lg text-vital-dark/60">
+        Creemos en una veterinaria más humana y respetuosa
+      </p>
+      <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
+        <div class="rounded-xl bg-white p-8 text-center shadow-md">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-vital-primary/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-vital-dark">Fear-Free</h3>
+          <p class="text-sm leading-relaxed text-slate-600">
+            Protocolos que reducen el miedo y la ansiedad. Cada consulta se adapta al ritmo de tu mascota.
+          </p>
+        </div>
+        <div class="rounded-xl bg-white p-8 text-center shadow-md">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-vital-primary/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-vital-dark">Medicina Preventiva</h3>
+          <p class="text-sm leading-relaxed text-slate-600">
+            Chequeos regulares, vacunación y planes de salud personalizados para cada etapa de la vida.
+          </p>
+        </div>
+        <div class="rounded-xl bg-white p-8 text-center shadow-md">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-vital-primary/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-vital-dark">Instalaciones Modernas</h3>
+          <p class="text-sm leading-relaxed text-slate-600">
+            Equipamiento de última generación para diagnósticos precisos y tratamientos efectivos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-4 py-20 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-4 text-center text-3xl font-bold text-vital-dark">Nuestras Instalaciones</h2>
+      <p class="mb-12 text-center text-lg text-vital-dark/60">
+        Contamos con espacios diseñados para el bienestar y la comodidad de tu mascota
+      </p>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="overflow-hidden rounded-xl bg-white shadow-md">
+          <img
+            src="/images/instalacion-recepcion.png"
+            alt="Recepción de la clínica"
+            class="h-56 w-full object-cover"
+            loading="lazy"
+          />
+          <div class="p-5">
+            <h3 class="mb-1 text-lg font-bold text-vital-dark">Recepción y Sala de Espera</h3>
+            <p class="text-sm text-slate-600">
+              Espacio amplio y acogedor con áreas separadas para perros y gatos, reduciendo el estrés desde que llegas.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-xl bg-white shadow-md">
+          <img
+            src="/images/instalacion-consultorio.png"
+            alt="Consultorio veterinario"
+            class="h-56 w-full object-cover"
+            loading="lazy"
+          />
+          <div class="p-5">
+            <h3 class="mb-1 text-lg font-bold text-vital-dark">Consultorios</h3>
+            <p class="text-sm text-slate-600">
+              Consultorios equipados con tecnología moderna para evaluaciones completas y diagnósticos precisos.
+            </p>
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-xl bg-white shadow-md">
+          <img
+            src="/images/instalacion-quirofano.png"
+            alt="Quirófano equipado"
+            class="h-56 w-full object-cover"
+            loading="lazy"
+          />
+          <div class="p-5">
+            <h3 class="mb-1 text-lg font-bold text-vital-dark">Quirófano</h3>
+            <p class="text-sm text-slate-600">
+              Quirófano equipado con estándares de asepscia, monitoreo anestésico y equipos de última generación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-20 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-12 text-center text-3xl font-bold text-vital-dark">Lo que dicen nuestros clientes</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-xl bg-white p-8 shadow-md">
+          <div class="mb-4 flex items-center gap-4">
+            <img
+              src="/images/testimonio-perro.png"
+              alt="Cliente"
+              class="h-14 w-14 rounded-full object-cover"
+              loading="lazy"
+            />
+            <div>
+              <p class="font-bold text-vital-dark">María González</p>
+              <p class="text-sm text-vital-primary">Dueña de Loki</p>
+            </div>
+          </div>
+          <div class="mb-3 flex text-amber-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <p class="text-sm leading-relaxed text-slate-600">
+            "Desde la primera visita notamos la diferencia. Loki solía estresarse en el veterinario, pero aquí lo trataron con tanta paciencia y cariño que ahora viene feliz. El enfoque Fear-Free es increíble."
+          </p>
+        </div>
+        <div class="rounded-xl bg-white p-8 shadow-md">
+          <div class="mb-4 flex items-center gap-4">
+            <img
+              src="/images/testimonio-gato.png"
+              alt="Cliente"
+              class="h-14 w-14 rounded-full object-cover"
+              loading="lazy"
+            />
+            <div>
+              <p class="font-bold text-vital-dark">Pedro Ramírez</p>
+              <p class="text-sm text-vital-primary">Dueño de Mía</p>
+            </div>
+          </div>
+          <div class="mb-3 flex text-amber-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <p class="text-sm leading-relaxed text-slate-600">
+            "Mía es una gata muy sensible y siempre había sido un desafío llevarla al veterinario. El Dr. Ruiz fue increíblemente paciente, usó feromonas y la atendió en una habitación tranquila. ¡Saldremos adelante con su tratamiento!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-vital-primary px-4 py-20 text-center text-white md:px-8 lg:px-16">
+    <h2 class="mb-4 text-3xl font-bold md:text-4xl">¿Listo para agendar una consulta?</h2>
+    <p class="mb-8 mx-auto max-w-2xl text-lg text-white/80">
+      Reserva tu hora con nuestros especialistas y descubre la experiencia Vital.
     </p>
-  </section>
-
-  <section class="bg-vital-secondary/30 px-4 py-16 md:px-8 lg:px-16">
-    <div
-      class="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-    >
-      <CardMedico
-        imagePath="/images/equipo-dra-general.png"
-        name="Dra. Laura Méndez"
-        specialty="Medicina General"
-        bio="Atención integral para perros y gatos con enfoque preventivo."
-      />
-      <CardMedico
-        imagePath="/images/equipo-dr-felinos.png"
-        name="Dr. Carlos Ruiz"
-        specialty="Especialista en Felinos"
-        bio="Diagnóstico y tratamiento exclusivo para medicina felina."
-      />
-      <CardMedico
-        imagePath="/images/equipo-dra-cirugia.png"
-        name="Dra. Sofía Torres"
-        specialty="Cirugía General"
-        bio="Cirujana con más de 10 años de experiencia en procedimientos complejos."
-      />
-      <CardMedico
-        imagePath="/images/equipo-dr-imagenes.png"
-        name="Dr. Martín López"
-        specialty="Diagnóstico por Imágenes"
-        bio="Especialista en radiología y ecografía veterinaria."
-      />
-    </div>
-  </section>
-
-  <section class="px-4 py-16 md:px-8 lg:px-16">
-    <h2 class="mb-10 text-center text-3xl font-bold text-vital-dark">
-      Nuestras Instalaciones
-    </h2>
-    <div class="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
-      <img
-        src="/images/instalacion-recepcion.png"
-        alt="Recepción de la clínica"
-        class="h-48 w-full rounded-xl object-cover shadow-md"
-        loading="lazy"
-      />
-      <img
-        src="/images/instalacion-consultorio.png"
-        alt="Consultorio veterinario"
-        class="h-48 w-full rounded-xl object-cover shadow-md"
-        loading="lazy"
-      />
-      <img
-        src="/images/instalacion-quirofano.png"
-        alt="Quirófano equipado"
-        class="h-48 w-full rounded-xl object-cover shadow-md"
-        loading="lazy"
-      />
-    </div>
+    <Button href="/turnos" variant="outline" text="Agendar Turno" className="border-white text-white hover:bg-white hover:text-vital-primary" />
   </section>
 </Layout>
