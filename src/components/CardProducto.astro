@@ -1,0 +1,64 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  category: string;
+  imagePath: string;
+  price: string;
+  description: string;
+}
+
+const { id, name, category, imagePath, price, description } = Astro.props;
+---
+
+<article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-md">
+  <img src={imagePath} alt={name} class="h-48 w-full object-contain bg-slate-100" loading="lazy" />
+  <div class="p-5 flex flex-col flex-grow">
+    <p class="mb-1 text-sm font-semibold text-vital-primary">{category}</p>
+    <h3 class="mb-2 text-xl font-heading font-bold text-vital-dark">{name}</h3>
+    <p class="mb-3 line-clamp-2 text-sm text-slate-600">{description}</p>
+    <div class="mt-auto flex items-center justify-between">
+      <span class="text-lg font-bold text-vital-dark">{price}</span>
+      <button
+        class="add-to-cart px-4 py-2 text-sm font-semibold text-white bg-vital-primary rounded-lg hover:bg-teal-700 transition-colors"
+        data-id={id}
+        data-name={name}
+        data-price={price.replace('$', '').replace('.', '').replace(',', '.')}
+        data-image={imagePath}
+        data-category={category}
+        aria-label={`Agregar ${name} al carrito`}
+      >
+        Agregar
+      </button>
+    </div>
+  </div>
+</article>
+
+<script>
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const product = {
+        id: this.dataset.id,
+        name: this.dataset.name,
+        price: parseFloat(this.dataset.price),
+        imagePath: this.dataset.image,
+        category: this.dataset.category,
+        quantity: 1
+      };
+      
+      if (window.cart) {
+        window.cart.add(product);
+      } else {
+        const event = new CustomEvent('cart-add', { detail: product });
+        window.dispatchEvent(event);
+      }
+      
+      this.textContent = 'Agregado ✓';
+      this.classList.add('bg-teal-600');
+      setTimeout(() => {
+        this.textContent = 'Agregar';
+        this.classList.remove('bg-teal-600');
+      }, 2000);
+    });
+  });
+</script>

@@ -1,0 +1,209 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardProducto from "../components/CardProducto.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout title="Petshop - Centro Veterinario Vital">
+  <section
+    class="bg-vital-primary px-4 py-20 text-center text-white md:px-8 lg:px-16"
+  >
+    <h1 class="text-4xl font-bold md:text-5xl">Petshop Vital</h1>
+    <p class="mt-4 max-w-2xl mx-auto text-lg opacity-90">
+      Todo lo que tu mascota necesita: alimentos, accesorios, higiene y más.
+    </p>
+  </section>
+
+  <section class="px-4 py-16 md:px-8 lg:px-16">
+    <div class="mb-12 flex flex-wrap items-center justify-between gap-4">
+      <h2 class="text-3xl font-bold text-vital-dark">Alimentos</h2>
+      <div class="flex items-center gap-4">
+        <button
+          id="cart-toggle"
+          class="relative p-2 text-vital-dark hover:text-vital-primary"
+          aria-label="Abrir carrito"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span
+            id="cart-count"
+            class="absolute -top-1 -right-1 hidden h-5 w-5 items-center justify-center text-xs font-bold text-white bg-red-500 rounded-full"
+            >0</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
+      <CardProducto
+        id="royal-canin-maxi-adult"
+        name="Royal Canin Maxi Adult"
+        category="Alimento Seco - Perros"
+        imagePath="/images/royal-canin-maxi-adult-15kg.jpg"
+        price="$45.990"
+        description="Alimento completo para perros adultos de razas grandes, con nutrientes para articulaciones y digestión sensible."
+      />
+      <CardProducto
+        id="hills-science-diet-adult"
+        name="Hill's Science Diet Adult"
+        category="Alimento Seco - Gatos"
+        imagePath="/images/hill-science-diet-adult.webp"
+        price="$38.500"
+        description="Nutrición balanceada para gatos adultos, apoya la salud urinaria y el peso ideal."
+      />
+      <CardProducto
+        id="purina-pro-plan-puppy"
+        name="Purina Pro Plan Puppy"
+        category="Alimento Seco - Cachorros"
+        imagePath="/images/purina-pro-plan-puppy.webp"
+        price="$42.000"
+        description="Fórmula especializada para cachorros con DHA para desarrollo cerebral y visual."
+      />
+      <CardProducto
+        id="acana-singles-limited"
+        name="Acana Singles Limited Ingredient"
+        category="Alimento Hipoalergénico"
+        imagePath="/images/acana-singles-limited.webp"
+        price="$52.990"
+        description="Ingredientes limitados, ideal para perros con sensibilidades alimentarias."
+      />
+    </div>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-16 md:px-8 lg:px-16">
+    <h2 class="mb-10 text-center text-3xl font-bold text-vital-dark">
+      Accesorios y Juguetes
+    </h2>
+    <div
+      class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
+      <CardProducto
+        id="cama-ortopedica-memory"
+        name="Cama Ortopédica Memory Foam"
+        category="Descanso"
+        imagePath="/images/cama-ortopedica-memory-foam.webp"
+        price="$58.990"
+        description="Cama viscoelástica para perros grandes, alivia presión articular."
+      />
+      <CardProducto
+        id="rascador-gatos-3-niveles"
+        name="Rascador para Gatos 3 Niveles"
+        category="Juegos - Gatos"
+        imagePath="/images/rascador-para-gatos-3-niveles.webp"
+        price="$100.500"
+        description="Estructura con plataformas, cueva y postes de sisal."
+      />
+      <CardProducto
+        id="correa-retractil-5m"
+        name="Correa Retráctil 5m"
+        category="Paseo"
+        imagePath="/images/correa-retractil-5m.webp"
+        price="$30.990"
+        description="Correa extensible con freno de seguridad, para perros hasta 25kg."
+      />
+      <CardProducto
+        id="bebedero-automatico-2l"
+        name="Bebedero Automático 2L"
+        category="Accesorios"
+        imagePath="/images/bebedero-automatico-2L.webp"
+        price="$18.500"
+        description="Fuente de agua con filtro de carbón, mantiene el agua fresca."
+      />
+    </div>
+  </section>
+
+  <section class="px-4 py-16 md:px-8 lg:px-16">
+    <h2 class="mb-10 text-center text-3xl font-bold text-vital-dark">
+      Higiene y Cuidado
+    </h2>
+    <div
+      class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
+      <CardProducto
+        id="champu-hipoalergenico-avena"
+        name="Champú Hipoalergénico Avena"
+        category="Baño"
+        imagePath="/images/dermosedan-shampoo-perros-aloe-vena-1L-bidon.webp"
+        price="$9.990"
+        description="Fórmula suave con avena coloidal, ideal para pieles sensibles."
+      />
+      <CardProducto
+        id="cepillo-deslanador-furminator"
+        name="Cepillo Deslanador Furminator"
+        category="Cepillado"
+        imagePath="/images/cepillo-deslanador-furminator.webp"
+        price="$15.990"
+        description="Reduce la caída de pelo hasta 90%, para perros y gatos."
+      />
+      <CardProducto
+        id="cortauñas-profesional"
+        name="Cortauñas Profesional"
+        category="Higiene"
+        imagePath="/images/cortaunas-profesional-perroygatos.webp"
+        price="$7.500"
+        description="Corte preciso con guarda de seguridad, apto perros y gatos."
+      />
+      <CardProducto
+        id="limpiador-oidos-veterinario"
+        name="Limpiador Oídos Veterinario"
+        category="Higiene"
+        imagePath="/images/limpiador-oidos-veterinario.webp"
+        price="$8.990"
+        description="Solución suave para limpieza rutinaria del conducto auditivo."
+      />
+    </div>
+  </section>
+
+  <section
+    class="bg-vital-primary px-4 py-20 text-center text-white md:px-8 lg:px-16"
+  >
+    <h2 class="mb-6 text-3xl font-bold md:text-4xl">
+      ¿No encontraste lo que buscas?
+    </h2>
+    <p class="mb-8 max-w-2xl mx-auto opacity-90">
+      Tenemos más productos en tienda. Visítanos o contáctanos para consultar
+      stock y precios.
+    </p>
+    <Button
+      href="/contacto"
+      variant="outline"
+      text="Contactar"
+      className="border-white text-white hover:bg-white hover:text-vital-primary"
+    />
+  </section>
+</Layout>
+
+<script>
+  const cartToggle = document.getElementById("cart-toggle");
+  const cartCount = document.getElementById("cart-count");
+
+  function updateCartCount() {
+    const count = window.cart?.count?.() ?? 0;
+    if (cartCount) {
+      cartCount.textContent = count;
+      cartCount.classList.toggle("hidden", count === 0);
+      cartCount.classList.toggle("flex", count > 0);
+    }
+  }
+
+  cartToggle?.addEventListener("click", () => {
+    const event = new CustomEvent("cart-open");
+    window.dispatchEvent(event);
+  });
+
+  window.addEventListener("cart-update", updateCartCount);
+  updateCartCount();
+</script>
