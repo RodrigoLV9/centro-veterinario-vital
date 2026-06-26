@@ -2,90 +2,94 @@
 import Layout from '../layouts/Layout.astro';
 import CardServicio from '../components/CardServicio.astro';
 import Button from '../components/Button.astro';
+
+const services = [
+  { slug: 'clinica-general', iconName: 'ph:stethoscope', title: 'Clínica General', description: 'Atención primaria, chequeos periódicos y seguimiento de enfermedades crónicas.' },
+  { slug: 'diagnostico-imagenes', iconName: 'ph:scan', title: 'Diagnóstico por Imágenes', description: 'Radiología digital y ecografía para un diagnóstico preciso y no invasivo.' },
+  { slug: 'vacunacion', iconName: 'ph:syringe', title: 'Vacunación', description: 'Calendario de vacunación completo para cachorros y adultos.' },
+  { slug: 'cirugia-general', iconName: 'ph:bandaids', title: 'Cirugía General', description: 'Quirófano equipado para cirugías programadas y de emergencia.' },
+  { slug: 'peluqueria', iconName: 'ph:scissors', title: 'Peluquería', description: 'Baño, corte higiénico y estético para todas las razas.' },
+  { slug: 'analisis-clinicos', iconName: 'ph:flask', title: 'Análisis Clínicos', description: 'Laboratorio interno con resultados rápidos en hematología y bioquímica.' },
+  { slug: 'odontologia', iconName: 'ph:tooth', title: 'Odontología', description: 'Limpieza dental, extracciones y tratamiento de enfermedades bucales.' },
+  { slug: 'urgencias', iconName: 'ph:ambulance', title: 'Urgencias 24h', description: 'Atención de emergencias las 24 horas del día, los 365 días del año.' },
+];
 ---
 
-<Layout title="Nuestros Servicios">
+<Layout title="Nuestros Servicios - Centro Veterinario Vital">
+  <section class="bg-gradient-to-br from-vital-primary to-teal-800 px-4 py-24 text-white md:px-8 lg:px-16">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="text-4xl font-bold md:text-5xl">Lo que hacemos por tu mascota</h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+        Ofrecemos atención integral con especialistas dedicados a cada área de la salud veterinaria.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-4 py-20 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-4 text-center text-3xl font-bold text-vital-dark">Todos nuestros servicios</h2>
+      <p class="mb-12 text-center text-lg text-vital-dark/60">
+        Hacé clic en cada servicio para obtener información detallada
+      </p>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {services.map(s => (
+          <a href={`/servicios/${s.slug}`} class="group block transition hover:-translate-y-1">
+            <CardServicio
+              iconName={s.iconName}
+              title={s.title}
+              description={s.description}
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-20 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div>
+          <h2 class="mb-4 text-3xl font-bold text-vital-dark">Atención personalizada para cada mascota</h2>
+          <p class="mb-6 leading-relaxed text-slate-600">
+            Sabemos que cada mascota es única. Por eso diseñamos planes de atención
+            adaptados a su edad, raza y condiciones de salud. Desde el primer control
+            de cachorro hasta el seguimiento geriátrico, acompañamos cada etapa con
+            calidez y profesionalismo.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 flex-shrink-0 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-sm text-slate-600">Ambiente tranquilo con protocolos Fear-Free</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 flex-shrink-0 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-sm text-slate-600">Equipamiento moderno para diagnósticos precisos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 flex-shrink-0 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-sm text-slate-600">Coordinación entre especialistas para casos complejos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 flex-shrink-0 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-sm text-slate-600">Historial clínico digital con seguimiento continuo</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <img src="/images/instalacion-consultorio.png" alt="Consultorio" class="rounded-xl shadow-md" loading="lazy" />
+          <img src="/images/equipo-dra-general.png" alt="Atención veterinaria" class="mt-6 rounded-xl shadow-md" loading="lazy" />
+          <img src="/images/instalacion-quirofano.png" alt="Quirófano" class="rounded-xl shadow-md" loading="lazy" />
+          <img src="/images/equipo-dr-felinos.png" alt="Especialista" class="mt-6 rounded-xl shadow-md" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="bg-vital-primary px-4 py-20 text-center text-white md:px-8 lg:px-16">
-    <h1 class="text-4xl font-bold md:text-5xl">Lo que hacemos por tu mascota</h1>
-  </section>
-
-  <section class="px-4 py-16 md:px-8 lg:px-16">
-    <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <CardServicio
-        iconName="ph:stethoscope"
-        title="Clínica General"
-        description="Atención primaria, chequeos periódicos y seguimiento de enfermedades crónicas."
-      />
-      <CardServicio
-        iconName="ph:scan"
-        title="Diagnóstico por Imágenes"
-        description="Radiología digital y ecografía para un diagnóstico preciso y no invasivo."
-      />
-      <CardServicio
-        iconName="ph:syringe"
-        title="Vacunación"
-        description="Calendario de vacunación completo para cachorros y adultos."
-      />
-      <CardServicio
-        iconName="ph:bandaids"
-        title="Cirugía General"
-        description="Quirófano equipado para cirugías programadas y de emergencia."
-      />
-      <CardServicio
-        iconName="ph:scissors"
-        title="Peluquería"
-        description="Baño, corte higiénico y estético para todas las razas."
-      />
-      <CardServicio
-        iconName="ph:flask"
-        title="Análisis Clínicos"
-        description="Laboratorio interno con resultados rápidos en hematología y bioquímica."
-      />
-    </div>
-  </section>
-
-  <section class="bg-vital-secondary/30 px-4 py-16 md:px-8 lg:px-16">
-    <h2 class="mb-10 text-center text-3xl font-bold text-vital-dark">Plan de Vacunación</h2>
-    <div class="mx-auto max-w-4xl overflow-x-auto">
-      <table class="w-full divide-y divide-gray-200 rounded-lg border text-left text-sm">
-        <thead class="bg-vital-secondary/60 text-vital-dark">
-          <tr>
-            <th class="px-6 py-4 font-semibold">Vacuna</th>
-            <th class="px-6 py-4 font-semibold">Caninos</th>
-            <th class="px-6 py-4 font-semibold">Felinos</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200 bg-white">
-          <tr>
-            <td class="px-6 py-4 font-medium">Séxtuple / Triple Felina</td>
-            <td class="px-6 py-4">✓</td>
-            <td class="px-6 py-4">✓</td>
-          </tr>
-          <tr>
-            <td class="px-6 py-4 font-medium">Antirrábica</td>
-            <td class="px-6 py-4">✓</td>
-            <td class="px-6 py-4">✓</td>
-          </tr>
-          <tr>
-            <td class="px-6 py-4 font-medium">Leucemia Felina</td>
-            <td class="px-6 py-4">—</td>
-            <td class="px-6 py-4">✓</td>
-          </tr>
-          <tr>
-            <td class="px-6 py-4 font-medium">Tos de las perreras</td>
-            <td class="px-6 py-4">✓</td>
-            <td class="px-6 py-4">—</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="flex flex-col items-center gap-6 px-4 py-20 text-center md:px-8">
-    <h2 class="text-3xl font-bold text-vital-dark">¿Tu mascota necesita un chequeo?</h2>
-    <p class="max-w-lg text-lg text-vital-dark/70">
-      Reservá un turno con nuestros especialistas y asegurate de que reciba la mejor atención.
+    <h2 class="mb-4 text-3xl font-bold md:text-4xl">Tu mascota merece la mejor atención</h2>
+    <p class="mb-8 mx-auto max-w-2xl text-lg text-white/80">
+      Agendá una consulta con nuestros especialistas y descubrí la experiencia Vital.
     </p>
-    <Button href="/turnos" text="Agendar Turno" />
+    <Button href="/turnos" variant="outline" text="Agendar Turno" className="border-white text-white hover:bg-white hover:text-vital-primary" />
   </section>
 </Layout>

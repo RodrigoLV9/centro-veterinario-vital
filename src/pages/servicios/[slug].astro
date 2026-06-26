@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+
+const services = [
+  {
+    slug: 'clinica-general',
+    title: 'Clínica General',
+    shortDesc: 'Atención primaria, chequeos periódicos y seguimiento de enfermedades crónicas.',
+    description: 'Nuestro servicio de clínica general es la puerta de entrada a la salud de tu mascota. Realizamos chequeos completos, diagnósticos preliminares y seguimiento de enfermedades crónicas como diabetes, insuficiencia renal o patologías cardíacas. Trabajamos con un enfoque preventivo para detectar cualquier anomalía a tiempo.',
+    image: '/images/instalacion-consultorio.png',
+    benefits: [
+      'Chequeos generales completos con evaluación física detallada',
+      'Seguimiento de enfermedades crónicas con planes personalizados',
+      'Atención con enfoque Fear-Free para reducir el estrés',
+      'Historial clínico digital con acceso rápido a antecedentes',
+      'Coordinación directa con especialistas internos si se requiere',
+    ],
+    process: [
+      { step: 'Recepción', desc: 'Te recibimos en un ambiente cálido y sin estrés para tu mascota.' },
+      { step: 'Evaluación', desc: 'Realizamos un examen físico completo y escuchamos tus preocupaciones.' },
+      { step: 'Diagnóstico', desc: 'Si es necesario, solicitamos estudios complementarios para un diagnóstico preciso.' },
+      { step: 'Tratamiento', desc: 'Definimos juntos el plan de tratamiento más adecuado para tu mascota.' },
+    ],
+    faq: [
+      { q: '¿Con qué frecuencia debo traer a mi mascota a control?', a: 'Recomendamos controles al menos una vez al año para mascotas adultas sanas, y cada 6 meses para cachorros, gerontes o mascotas con enfermedades crónicas.' },
+      { q: '¿Qué incluye un chequeo general?', a: 'Incluye evaluación de peso, condición corporal, auscultación cardíaca y pulmonar, revisión de ojos, oídos y boca, palpación abdominal y revisión de piel y pelaje.' },
+    ],
+  },
+  {
+    slug: 'diagnostico-imagenes',
+    title: 'Diagnóstico por Imágenes',
+    shortDesc: 'Radiología digital y ecografía para un diagnóstico preciso y no invasivo.',
+    description: 'Contamos con equipamiento de última generación para diagnóstico por imágenes. Nuestro servicio incluye radiología digital de alta resolución y ecografía Doppler, permitiendo obtener imágenes nítidas para un diagnóstico certero. Todos los estudios son realizados e interpretados por nuestro especialista en imágenes.',
+    image: '/images/equipo-dr-imagenes.png',
+    benefits: [
+      'Radiología digital con baja exposición a radiación',
+      'Ecografía abdominal y cardíaca con Doppler color',
+      'Estudios contrastados cuando son necesarios',
+      'Interpretación inmediata por especialista',
+      'Informe digital detallado con imágenes incluidas',
+    ],
+    process: [
+      { step: 'Preparación', desc: 'Te indicaremos las preparaciones necesarias según el estudio (ayuno, vejiga llena, etc.).' },
+      { step: 'Estudio', desc: 'El estudio se realiza en un ambiente tranquilo. En la mayoría de los casos no requiere sedación.' },
+      { step: 'Interpretación', desc: 'El especialista analiza las imágenes y emite un informe detallado.' },
+      { step: 'Resultados', desc: 'Recibís los resultados junto con una explicación clara y las recomendaciones del especialista.' },
+    ],
+    faq: [
+      { q: '¿Los estudios por imágenes duelen?', a: 'No, son procedimientos completamente indoloros y no invasivos. En algunos casos puede ser necesaria una sedación suave si el paciente está muy ansioso.' },
+      { q: '¿Cuánto tiempo toma una ecografía?', a: 'Una ecografía abdominal completa toma entre 20 y 40 minutos, dependiendo de la cooperación del paciente y la complejidad del caso.' },
+    ],
+  },
+  {
+    slug: 'vacunacion',
+    title: 'Vacunación',
+    shortDesc: 'Calendario de vacunación completo para cachorros y adultos.',
+    description: 'Protegemos a tu mascota contra enfermedades prevenibles mediante un plan de vacunación adaptado a su edad, especie y estilo de vida. Seguimos los calendarios vigentes recomendados por el Colegio Veterinario y utilizamos vacunas de laboratorios certificados.',
+    image: '/images/equipo-dra-general.png',
+    benefits: [
+      'Vacunas de laboratorios certificados con cadena de frío controlada',
+      'Plan de vacunación personalizado según edad y estilo de vida',
+      'Refuerzos programados con recordatorio automático',
+      'Certificado de vacunación digital y físico',
+      'Evaluación previa para garantizar que la mascota esté apta para vacunarse',
+    ],
+    process: [
+      { step: 'Evaluación previa', desc: 'Revisamos que tu mascota esté clínicamente sana para recibir la vacuna.' },
+      { step: 'Aplicación', desc: 'La vacuna se aplica de forma rápida y con técnicas que minimizan las molestias.' },
+      { step: 'Observación', desc: 'Recomendamos una breve observación post-vacunación para descartar reacciones adversas.' },
+      { step: 'Registro', desc: 'Actualizamos su carnet de vacunación y agendamos el próximo refuerzo.' },
+    ],
+    faq: [
+      { q: '¿A qué edad se empieza a vacunar un cachorro?', a: 'Los cachorros comienzan su plan de vacunación a las 6-8 semanas de edad, con refuerzos cada 3-4 semanas hasta completar las 16 semanas.' },
+      { q: '¿Cada cuánto se aplican los refuerzos?', a: 'Las vacunas combinadas se refuerzan anualmente. La antirrábica también es anual según la legislación vigente.' },
+    ],
+  },
+  {
+    slug: 'cirugia-general',
+    title: 'Cirugía General',
+    shortDesc: 'Quirófano equipado para cirugías programadas y de emergencia.',
+    description: 'Nuestro quirófano está equipado con estándares de calidad hospitalaria para realizar cirugías programadas y de urgencia. Contamos con monitoreo anestésico continuo, equipos de asepscia y un equipo quirúrgico experimentado. Realizamos desde esterilizaciones hasta procedimientos complejos de tejidos blandos.',
+    image: '/images/instalacion-quirofano.png',
+    benefits: [
+      'Quirófano con estándares de asepscia y control de infecciones',
+      'Monitoreo anestésico continuo con equipos multiparamétricos',
+      'Cirugía laparoscópica mínimamente invasiva',
+      'Analgesia multimodal para el control del dolor post-operatorio',
+      'Internación con seguimiento por personal especializado',
+    ],
+    process: [
+      { step: 'Pre-operatorio', desc: 'Realizamos análisis pre-quirúrgicos para evaluar que tu mascota esté en condiciones óptimas.' },
+      { step: 'Cirugía', desc: 'El procedimiento se realiza bajo anestesia general con monitoreo constante.' },
+      { step: 'Recuperación', desc: 'Tu mascota despierta en una sala de recuperación cálida y supervisada.' },
+      { step: 'Alta y seguimiento', desc: 'Te entregamos indicaciones detalladas y programamos controles post-operatorios.' },
+    ],
+    faq: [
+      { q: '¿Cuánto tiempo dura la recuperación?', a: 'Depende del tipo de cirugía. Una esterilización se recupera en 7-10 días, mientras que cirugías más complejas pueden requerir 2-4 semanas.' },
+      { q: '¿Mi mascota sentirá dolor?', a: 'Aplicamos protocolos de analgesia multimodal para minimizar el dolor. Te indicaremos medicación analgésica para administrar en casa.' },
+    ],
+  },
+  {
+    slug: 'peluqueria',
+    title: 'Peluquería',
+    shortDesc: 'Baño, corte higiénico y estético para todas las razas.',
+    description: 'Nuestro servicio de peluquería combina estética y bienestar. Realizamos baños medicados cuando es necesario, cortes higiénicos y estéticos adaptados a cada raza, y cuidados específicos para la piel y el pelaje. Todo en un ambiente tranquilo con manejo Fear-Free.',
+    image: '/images/testimonio-perro.png',
+    benefits: [
+      'Baños con productos hipoalergénicos y medicados según necesidad',
+      'Corte estético e higiénico adaptado a la raza',
+      'Limpieza de oídos y corte de uñas incluido',
+      'Manejo Fear-Free para mascotas ansiosas',
+      'Detección temprana de anomalías en piel, nódulos o parásitos',
+    ],
+    process: [
+      { step: 'Recepción', desc: 'Evaluamos el estado del pelaje y la piel para determinar el mejor tratamiento.' },
+      { step: 'Baño', desc: 'Baño con productos profesionales, cepillado y limpieza de oídos.' },
+      { step: 'Corte', desc: 'Corte higiénico y estético según la raza y tus preferencias.' },
+      { step: 'Entrega', desc: 'Te entregamos a tu mascota limpia, cepillada y con recomendaciones para el cuidado en casa.' },
+    ],
+    faq: [
+      { q: '¿Cada cuánto se recomienda la peluquería?', a: 'Depende de la raza y el tipo de pelaje. En general, cada 4-8 semanas para mantenimiento, aunque algunas razas requieren visitas más frecuentes.' },
+      { q: '¿Usan productos para mascotas alérgicas?', a: 'Sí, contamos con líneas hipoalergénicas y medicadas. Indícanos si tu mascota tiene sensibilidad conocida a algún producto.' },
+    ],
+  },
+  {
+    slug: 'analisis-clinicos',
+    title: 'Análisis Clínicos',
+    shortDesc: 'Laboratorio interno con resultados rápidos en hematología y bioquímica.',
+    description: 'Contamos con laboratorio de análisis clínicos propio, lo que nos permite obtener resultados rápidos y precisos sin necesidad de derivar a laboratorios externos. Realizamos hematología completa, bioquímica sanguínea, análisis de orina, coproparasitológicos y pruebas hormonales.',
+    image: '/images/equipo-dr-felinos.png',
+    benefits: [
+      'Laboratorio interno con resultados en el día',
+      'Hematología completa con recuento diferencial automatizado',
+      'Perfil bioquímico hepático, renal y pancreático',
+      'Análisis de orina y coproparasitológicos seriados',
+      'Pruebas rápidas para enfermedades infecciosas',
+    ],
+    process: [
+      { step: 'Toma de muestra', desc: 'Extraemos la muestra necesaria (sangre, orina, heces) con el menor estrés posible.' },
+      { step: 'Análisis', desc: 'Procesamos la muestra en nuestro laboratorio interno con equipos automatizados.' },
+      { step: 'Interpretación', desc: 'El veterinario interpreta los resultados en el contexto clínico de tu mascota.' },
+      { step: 'Resultados', desc: 'Recibís los resultados junto con una explicación clara y recomendaciones.' },
+    ],
+    faq: [
+      { q: '¿Mi mascota debe venir en ayunas?', a: 'Para la mayoría de los análisis de sangre se recomienda ayuno de 8-12 horas. Para análisis de orina no siempre es necesario. Te indicaremos según el estudio.' },
+      { q: '¿Cuánto tardan los resultados?', a: 'Los análisis de rutina están listos en 1-2 horas. Algunos estudios especiales pueden requerir 24-48 horas.' },
+    ],
+  },
+  {
+    slug: 'odontologia',
+    title: 'Odontología',
+    shortDesc: 'Limpieza dental, extracciones y tratamiento de enfermedades bucales.',
+    description: 'La salud dental es fundamental para el bienestar general de tu mascota. Ofrecemos limpiezas profesionales con ultrasonido, extracciones, tratamientos de enfermedad periodontal y cirugía oral menor. Trabajamos con anestesia segura y monitoreo constante.',
+    image: '/images/equipo-dra-cirugia.png',
+    benefits: [
+      'Limpieza dental con ultrasonido y pulido profesional',
+      'Radiografías dentales para evaluar la salud de la raíz',
+      'Tratamiento de enfermedad periodontal',
+      'Extracciones quirúrgicas con analgesia',
+      'Plan de prevención y cuidado dental en casa',
+    ],
+    process: [
+      { step: 'Evaluación', desc: 'Revisamos la cavidad oral y evaluamos la necesidad de radiografías dentales.' },
+      { step: 'Limpieza', desc: 'Realizamos la limpieza con ultrasonido bajo anestesia general segura.' },
+      { step: 'Tratamiento', desc: 'Si se detectan problemas, realizamos extracciones u otros tratamientos necesarios.' },
+      { step: 'Seguimiento', desc: 'Te indicamos cómo mantener la salud dental en casa y programamos controles periódicos.' },
+    ],
+    faq: [
+      { q: '¿Con qué frecuencia debo limpiar los dientes de mi mascota?', a: 'Recomendamos limpiezas profesionales una vez al año, complementadas con cepillado en casa al menos 2-3 veces por semana.' },
+      { q: '¿La limpieza dental requiere anestesia?', a: 'Sí, la limpieza profesional requiere anestesia general para poder realizar una evaluación completa y una limpieza profunda y segura.' },
+    ],
+  },
+  {
+    slug: 'urgencias',
+    title: 'Urgencias 24h',
+    shortDesc: 'Atención de emergencias las 24 horas del día, los 365 días del año.',
+    description: 'Disponemos de guardia permanente para emergencias veterinarias. Nuestro equipo está preparado para atender intoxicaciones, traumatismos, dificultad respiratoria, convulsiones y cualquier otra urgencia. Contamos con quirófano disponible 24/7 y laboratorio para análisis urgentes.',
+    image: '/images/hero-inicio.png',
+    benefits: [
+      'Atención inmediata sin turno previo',
+      'Quirófano disponible 24 horas para emergencias',
+      'Laboratorio de urgencia con resultados rápidos',
+      'Internación con monitoreo continuo',
+      'Comunicación directa con el veterinario de guardia las 24 horas',
+    ],
+    process: [
+      { step: 'Llegada', desc: 'Comunicate al (123) 456-7890 o acercate directamente a nuestra clínica.' },
+      { step: 'Triaje', desc: 'Evaluamos la gravedad del caso para priorizar la atención.' },
+      { step: 'Atención', desc: 'Estabilizamos al paciente, realizamos estudios de urgencia y definimos el tratamiento.' },
+      { step: 'Seguimiento', desc: 'Si es necesario, internamos al paciente con monitoreo continuo y comunicación permanente.' },
+    ],
+    faq: [
+      { q: '¿Qué considero una emergencia?', a: 'Dificultad para respirar, traumatismos graves, intoxicaciones, convulsiones, colapso, sangrados abundantes, hinchazón abdominal repentina o parto con complicaciones.' },
+      { q: '¿Necesito turno para emergencias?', a: 'No, las urgencias se atienden sin turno previo. Llamanos al (123) 456-7890 para que te indiquen cómo proceder.' },
+    ],
+  },
+];
+
+export function getStaticPaths() {
+  const slugs = [
+    'clinica-general', 'diagnostico-imagenes', 'vacunacion',
+    'cirugia-general', 'peluqueria', 'analisis-clinicos',
+    'odontologia', 'urgencias',
+  ];
+  return slugs.map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const service = services.find(s => s.slug === slug);
+
+if (!service) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={`${service.title} - Centro Veterinario Vital`}>
+  <section class="bg-gradient-to-br from-vital-primary to-teal-800 px-4 py-24 text-white md:px-8 lg:px-16">
+    <div class="mx-auto max-w-4xl">
+      <a href="/servicios" class="mb-6 inline-flex items-center gap-1 text-sm text-white/70 hover:text-white transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver a Servicios
+      </a>
+      <h1 class="text-4xl font-bold md:text-5xl">{service.title}</h1>
+      <p class="mt-4 max-w-2xl text-lg text-white/80">{service.shortDesc}</p>
+    </div>
+  </section>
+
+  <section class="px-4 py-16 md:px-8 lg:px-16">
+    <div class="mx-auto grid max-w-5xl items-start gap-12 md:grid-cols-2">
+      <div>
+        <h2 class="mb-4 text-2xl font-bold text-vital-dark">¿En qué consiste?</h2>
+        <p class="leading-relaxed text-slate-600">{service.description}</p>
+
+        <h2 class="mb-4 mt-10 text-2xl font-bold text-vital-dark">Beneficios</h2>
+        <ul class="space-y-3">
+          {service.benefits.map(benefit => (
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 flex-shrink-0 text-vital-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-slate-600">{benefit}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <img src={service.image} alt={service.title} class="w-full rounded-xl shadow-md" loading="lazy" />
+        <div class="mt-6 rounded-xl bg-vital-secondary/30 p-6">
+          <h3 class="mb-4 text-lg font-bold text-vital-dark">¿Cómo funciona?</h3>
+          <ol class="space-y-4">
+            {service.process.map((step, i) => (
+              <li class="flex gap-3">
+                <span class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-vital-primary text-sm font-bold text-white">{i + 1}</span>
+                <div>
+                  <p class="font-semibold text-vital-dark">{step.step}</p>
+                  <p class="text-sm text-slate-600">{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-vital-secondary/30 px-4 py-16 md:px-8 lg:px-16">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-vital-dark">Preguntas Frecuentes</h2>
+      <div class="space-y-4">
+        {service.faq.map(item => (
+          <details class="group rounded-xl bg-white shadow-sm">
+            <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-vital-dark">
+              {item.q}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="border-t border-slate-100 px-6 py-4 text-sm leading-relaxed text-slate-600">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-20 text-center md:px-8">
+    <h2 class="mb-4 text-3xl font-bold text-vital-dark">¿Necesitas este servicio?</h2>
+    <p class="mb-8 mx-auto max-w-lg text-lg text-vital-dark/70">
+      Agendá un turno con nuestro equipo de especialistas.
+    </p>
+    <Button href="/turnos" text="Agendar Turno" />
+  </section>
+</Layout>
