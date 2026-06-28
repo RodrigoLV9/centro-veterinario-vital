@@ -187,23 +187,9 @@ import Button from "../components/Button.astro";
 </Layout>
 
 <script>
-  const cartToggle = document.getElementById("cart-toggle");
-  const cartCount = document.getElementById("cart-count");
-
-  function updateCartCount() {
-    const count = window.cart?.count?.() ?? 0;
-    if (cartCount) {
-      cartCount.textContent = count;
-      cartCount.classList.toggle("hidden", count === 0);
-      cartCount.classList.toggle("flex", count > 0);
+  document.addEventListener("click", function(e) {
+    if (e.target.closest("#cart-toggle")) {
+      window.dispatchEvent(new CustomEvent("cart-open"));
     }
-  }
-
-  cartToggle?.addEventListener("click", () => {
-    const event = new CustomEvent("cart-open");
-    window.dispatchEvent(event);
   });
-
-  window.addEventListener("cart-update", updateCartCount);
-  updateCartCount();
 </script>

@@ -68,24 +68,23 @@ import { formatPrice } from '../lib/cart.js';
     return getCart().reduce((sum, item) => sum + item.price * item.quantity, 0);
   }
 
-  const dropdown = document.getElementById('cart-dropdown');
-  const overlay = document.getElementById('cart-overlay');
-  const closeBtn = document.getElementById('cart-close');
-
   function openCart() {
-    dropdown?.classList.remove('translate-x-full');
-    overlay?.classList.remove('hidden');
+    document.getElementById('cart-dropdown')?.classList.remove('translate-x-full');
+    document.getElementById('cart-overlay')?.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
 
   function closeCart() {
-    dropdown?.classList.add('translate-x-full');
-    overlay?.classList.add('hidden');
+    document.getElementById('cart-dropdown')?.classList.add('translate-x-full');
+    document.getElementById('cart-overlay')?.classList.add('hidden');
     document.body.style.overflow = '';
   }
 
-  closeBtn?.addEventListener('click', closeCart);
-  overlay?.addEventListener('click', closeCart);
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('#cart-close') || e.target.closest('#cart-overlay')) {
+      closeCart();
+    }
+  });
   window.addEventListener('cart-open', openCart);
 
   function renderCart() {
@@ -182,6 +181,7 @@ import { formatPrice } from '../lib/cart.js';
   });
 
   window.addEventListener('cart-update', renderCart);
+  document.addEventListener('astro:page-load', renderCart);
   renderCart();
 </script>
 

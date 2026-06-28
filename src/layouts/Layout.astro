@@ -48,4 +48,20 @@ const { title, description = "Centro Veterinario Vital. Atención médica integr
 
 <script>
   import '../lib/cart.js';
+
+  function updateCartCount() {
+    const count = window.cart?.count?.() ?? 0;
+    const el = document.getElementById('cart-count');
+    if (el) {
+      el.textContent = count;
+      el.classList.toggle('hidden', count === 0);
+      el.classList.toggle('flex', count > 0);
+    }
+  }
+
+  window.addEventListener('cart-update', updateCartCount);
+
+  document.addEventListener('astro:page-load', updateCartCount);
+
+  updateCartCount();
 </script>
